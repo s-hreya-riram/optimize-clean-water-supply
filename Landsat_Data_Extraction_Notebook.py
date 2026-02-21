@@ -14,6 +14,8 @@ import time
 import json
 import logging
 import random
+import socket
+socket.setdefaulttimeout(30)
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 

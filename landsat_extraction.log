@@ -8951,3 +8951,551 @@
 2026-02-21 04:35:36,278 - INFO - Speed: 0.94 loc/s  |  ETA: 0:51:46
 2026-02-21 04:35:36,278 - INFO - Sleeping 3s between batches...
 2026-02-21 04:35:39,279 - INFO - Batch 33: locations 6401-6600
+2026-02-21 09:13:21,289 - INFO - Resumed from batch_0031_checkpoint.json: 6400 locations done
+2026-02-21 09:13:21,294 - INFO - Processing 2919 remaining locations in batches of 200 with 30 workers
+2026-02-21 09:13:21,294 - INFO - Batch 33: locations 1-200
+2026-02-21 09:17:40,602 - INFO - Checkpoint saved for batch 32
+2026-02-21 09:17:40,602 - INFO - Batch 33 done in 259.3s
+2026-02-21 09:17:40,602 - INFO - Progress: 6600/9319 (70.8%)
+2026-02-21 09:17:40,602 - INFO - Speed: 0.77 loc/s  |  ETA: 0:58:45
+2026-02-21 09:17:40,603 - INFO - Sleeping 3s between batches...
+2026-02-21 09:17:43,603 - INFO - Batch 34: locations 201-400
+2026-02-21 09:20:39,279 - INFO - Checkpoint saved for batch 33
+2026-02-21 09:20:39,280 - INFO - Batch 34 done in 175.7s
+2026-02-21 09:20:39,280 - INFO - Progress: 6800/9319 (73.0%)
+2026-02-21 09:20:39,280 - INFO - Speed: 1.14 loc/s  |  ETA: 0:36:52
+2026-02-21 09:20:39,280 - INFO - Sleeping 3s between batches...
+2026-02-21 09:20:42,280 - INFO - Batch 35: locations 401-600
+2026-02-21 09:23:35,025 - INFO - Checkpoint saved for batch 34
+2026-02-21 09:23:35,025 - INFO - Batch 35 done in 172.7s
+2026-02-21 09:23:35,026 - INFO - Progress: 7000/9319 (75.1%)
+2026-02-21 09:23:35,026 - INFO - Speed: 1.16 loc/s  |  ETA: 0:33:22
+2026-02-21 09:23:35,026 - INFO - Sleeping 3s between batches...
+2026-02-21 09:23:38,027 - INFO - Batch 36: locations 601-800
+2026-02-21 09:26:03,878 - WARNING - Attempt 1 failed for lat=-26.880278, lon=26.965: <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type' />
+    <style type='text/css'>
+        body {
+            font-family: Arial;
+            margin-left: 40px;
+        }
+
+        img {
+            border: 0 none;
+        }
+
+        #content {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        #message h1 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message p {
+            font-size: 16px;
+            color: #000000;
+            margin: 8px 0px 0px 0px
+        }
+
+        #message hr {
+            margin: 15px 0px
+        }
+
+        #errorref {
+            font-size: 11px;
+            color: #737373;
+            margin-top: 41px
+        }
+    </style>
+    <title>Service unavailable</title>
+</head>
+
+<body>
+    <div id='content'>
+        <div id='message'>
+            <h1>502</h1>
+<h2><span>The service behind this page isn't responding to Azure Front Door.</span>
+</h2>
+<hr />
+<p>Bad Gateway</p>
+<p>Azure Front Door wasn't able to connect to the origin. <br> If the problem persists, use the troubleshooting steps to resolve the issue.</p>
+<br />
+<a href="https://learn.microsoft.com/en-us/azure/frontdoor/troubleshoot-issues" target="blank">Azure Documentation</a>
+<br />
+        </div>
+        <div id='errorref'>
+            <span>Error Info:</span><span>OriginConnectionAborted</span><br />
+<span>x-azure-ref ID:</span><span>20260221T092603Z-r1ff856f9d5bg4fxhC1SG110mg0000000yyg000000007s5h            </span>
+        </div>
+    </div>
+</body>
+</html>
+
+2026-02-21 09:26:54,694 - INFO - Checkpoint saved for batch 35
+2026-02-21 09:26:54,694 - INFO - Batch 36 done in 196.7s
+2026-02-21 09:26:54,694 - INFO - Progress: 7200/9319 (77.3%)
+2026-02-21 09:26:54,695 - INFO - Speed: 1.02 loc/s  |  ETA: 0:34:43
+2026-02-21 09:26:54,695 - INFO - Sleeping 3s between batches...
+2026-02-21 09:26:57,695 - INFO - Batch 37: locations 801-1000
+2026-02-21 09:29:59,783 - INFO - Checkpoint saved for batch 36
+2026-02-21 09:29:59,783 - INFO - Batch 37 done in 182.1s
+2026-02-21 09:29:59,783 - INFO - Progress: 7400/9319 (79.4%)
+2026-02-21 09:29:59,784 - INFO - Speed: 1.10 loc/s  |  ETA: 0:29:07
+2026-02-21 09:29:59,784 - INFO - Sleeping 3s between batches...
+2026-02-21 09:30:02,784 - INFO - Batch 38: locations 1001-1200
+2026-02-21 09:33:28,026 - INFO - Checkpoint saved for batch 37
+2026-02-21 09:33:28,027 - INFO - Batch 38 done in 205.2s
+2026-02-21 09:33:28,027 - INFO - Progress: 7600/9319 (81.6%)
+2026-02-21 09:33:28,027 - INFO - Speed: 0.97 loc/s  |  ETA: 0:29:24
+2026-02-21 09:33:28,027 - INFO - Sleeping 3s between batches...
+2026-02-21 09:33:31,027 - INFO - Batch 39: locations 1201-1400
+2026-02-21 09:36:44,405 - INFO - Checkpoint saved for batch 38
+2026-02-21 09:36:44,405 - INFO - Batch 39 done in 193.4s
+2026-02-21 09:36:44,405 - INFO - Progress: 7800/9319 (83.7%)
+2026-02-21 09:36:44,405 - INFO - Speed: 1.03 loc/s  |  ETA: 0:24:28
+2026-02-21 09:36:44,406 - INFO - Sleeping 3s between batches...
+2026-02-21 09:36:47,406 - INFO - Batch 40: locations 1401-1600
+2026-02-21 09:40:11,612 - INFO - Checkpoint saved for batch 39
+2026-02-21 09:40:11,612 - INFO - Batch 40 done in 204.2s
+2026-02-21 09:40:11,612 - INFO - Progress: 8000/9319 (85.8%)
+2026-02-21 09:40:11,613 - INFO - Speed: 0.98 loc/s  |  ETA: 0:22:26
+2026-02-21 09:40:11,613 - INFO - Sleeping 3s between batches...
+2026-02-21 09:40:14,613 - INFO - Batch 41: locations 1601-1800
+2026-02-21 09:43:39,553 - INFO - Checkpoint saved for batch 40
+2026-02-21 09:43:39,553 - INFO - Batch 41 done in 204.9s
+2026-02-21 09:43:39,553 - INFO - Progress: 8200/9319 (88.0%)
+2026-02-21 09:43:39,553 - INFO - Speed: 0.98 loc/s  |  ETA: 0:19:06
+2026-02-21 09:43:39,554 - INFO - Sleeping 3s between batches...
+2026-02-21 09:43:42,554 - INFO - Batch 42: locations 1801-2000
+2026-02-21 09:45:03,489 - WARNING - Attempt 1 failed for lat=-25.45963889, lon=28.26430556: <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type' />
+    <style type='text/css'>
+        body {
+            font-family: Arial;
+            margin-left: 40px;
+        }
+
+        img {
+            border: 0 none;
+        }
+
+        #content {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        #message h1 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message p {
+            font-size: 16px;
+            color: #000000;
+            margin: 8px 0px 0px 0px
+        }
+
+        #message hr {
+            margin: 15px 0px
+        }
+
+        #errorref {
+            font-size: 11px;
+            color: #737373;
+            margin-top: 41px
+        }
+    </style>
+    <title>Service unavailable</title>
+</head>
+
+<body>
+    <div id='content'>
+        <div id='message'>
+            <h1>502</h1>
+<h2><span>The service behind this page isn't responding to Azure Front Door.</span>
+</h2>
+<hr />
+<p>Bad Gateway</p>
+<p>Azure Front Door wasn't able to connect to the origin. <br> If the problem persists, use the troubleshooting steps to resolve the issue.</p>
+<br />
+<a href="https://learn.microsoft.com/en-us/azure/frontdoor/troubleshoot-issues" target="blank">Azure Documentation</a>
+<br />
+        </div>
+        <div id='errorref'>
+            <span>Error Info:</span><span>OriginConnectionAborted</span><br />
+<span>x-azure-ref ID:</span><span>20260221T094502Z-17cbd4d84fds9pqghC1SG1ntxw00000001zg000000004h2z            </span>
+        </div>
+    </div>
+</body>
+</html>
+
+2026-02-21 09:45:03,882 - WARNING - Attempt 1 failed for lat=-24.282222, lon=28.090278: <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type' />
+    <style type='text/css'>
+        body {
+            font-family: Arial;
+            margin-left: 40px;
+        }
+
+        img {
+            border: 0 none;
+        }
+
+        #content {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        #message h1 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message p {
+            font-size: 16px;
+            color: #000000;
+            margin: 8px 0px 0px 0px
+        }
+
+        #message hr {
+            margin: 15px 0px
+        }
+
+        #errorref {
+            font-size: 11px;
+            color: #737373;
+            margin-top: 41px
+        }
+    </style>
+    <title>Service unavailable</title>
+</head>
+
+<body>
+    <div id='content'>
+        <div id='message'>
+            <h1>502</h1>
+<h2><span>The service behind this page isn't responding to Azure Front Door.</span>
+</h2>
+<hr />
+<p>Bad Gateway</p>
+<p>Azure Front Door wasn't able to connect to the origin. <br> If the problem persists, use the troubleshooting steps to resolve the issue.</p>
+<br />
+<a href="https://learn.microsoft.com/en-us/azure/frontdoor/troubleshoot-issues" target="blank">Azure Documentation</a>
+<br />
+        </div>
+        <div id='errorref'>
+            <span>Error Info:</span><span>OriginConnectionAborted</span><br />
+<span>x-azure-ref ID:</span><span>20260221T094503Z-17cbd4d84fd5jldphC1SG1nz7w0000000zug00000000bv18            </span>
+        </div>
+    </div>
+</body>
+</html>
+
+2026-02-21 09:46:40,253 - WARNING - Attempt 1 failed for lat=-29.033333, lon=23.983333: <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type' />
+    <style type='text/css'>
+        body {
+            font-family: Arial;
+            margin-left: 40px;
+        }
+
+        img {
+            border: 0 none;
+        }
+
+        #content {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        #message h1 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message p {
+            font-size: 16px;
+            color: #000000;
+            margin: 8px 0px 0px 0px
+        }
+
+        #message hr {
+            margin: 15px 0px
+        }
+
+        #errorref {
+            font-size: 11px;
+            color: #737373;
+            margin-top: 41px
+        }
+    </style>
+    <title>Service unavailable</title>
+</head>
+
+<body>
+    <div id='content'>
+        <div id='message'>
+            <h1>502</h1>
+<h2><span>The service behind this page isn't responding to Azure Front Door.</span>
+</h2>
+<hr />
+<p>Bad Gateway</p>
+<p>Azure Front Door wasn't able to connect to the origin. <br> If the problem persists, use the troubleshooting steps to resolve the issue.</p>
+<br />
+<a href="https://learn.microsoft.com/en-us/azure/frontdoor/troubleshoot-issues" target="blank">Azure Documentation</a>
+<br />
+        </div>
+        <div id='errorref'>
+            <span>Error Info:</span><span>OriginConnectionAborted</span><br />
+<span>x-azure-ref ID:</span><span>20260221T094640Z-17cbd4d84fdwk6wmhC1SG172y00000000400000000004yhz            </span>
+        </div>
+    </div>
+</body>
+</html>
+
+2026-02-21 09:47:29,567 - INFO - Checkpoint saved for batch 41
+2026-02-21 09:47:29,567 - INFO - Batch 42 done in 227.0s
+2026-02-21 09:47:29,567 - INFO - Progress: 8400/9319 (90.1%)
+2026-02-21 09:47:29,568 - INFO - Speed: 0.88 loc/s  |  ETA: 0:17:23
+2026-02-21 09:47:29,568 - INFO - Sleeping 3s between batches...
+2026-02-21 09:47:32,568 - INFO - Batch 43: locations 2001-2200
+2026-02-21 09:51:24,355 - INFO - Checkpoint saved for batch 42
+2026-02-21 09:51:24,355 - INFO - Batch 43 done in 231.8s
+2026-02-21 09:51:24,356 - INFO - Progress: 8600/9319 (92.3%)
+2026-02-21 09:51:24,356 - INFO - Speed: 0.86 loc/s  |  ETA: 0:13:53
+2026-02-21 09:51:24,356 - INFO - Sleeping 3s between batches...
+2026-02-21 09:51:27,356 - INFO - Batch 44: locations 2201-2400
+2026-02-21 09:54:32,145 - INFO - Checkpoint saved for batch 43
+2026-02-21 09:54:32,145 - INFO - Batch 44 done in 184.8s
+2026-02-21 09:54:32,146 - INFO - Progress: 8800/9319 (94.4%)
+2026-02-21 09:54:32,146 - INFO - Speed: 1.08 loc/s  |  ETA: 0:07:59
+2026-02-21 09:54:32,146 - INFO - Sleeping 3s between batches...
+2026-02-21 09:54:35,146 - INFO - Batch 45: locations 2401-2600
+2026-02-21 09:57:58,778 - INFO - Checkpoint saved for batch 44
+2026-02-21 09:57:58,778 - INFO - Batch 45 done in 203.6s
+2026-02-21 09:57:58,779 - INFO - Progress: 9000/9319 (96.6%)
+2026-02-21 09:57:58,779 - INFO - Speed: 0.98 loc/s  |  ETA: 0:05:24
+2026-02-21 09:57:58,779 - INFO - Sleeping 3s between batches...
+2026-02-21 09:58:01,779 - INFO - Batch 46: locations 2601-2800
+2026-02-21 09:59:33,740 - WARNING - Attempt 1 failed for lat=-28.404444, lon=30.013056: <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type' />
+    <style type='text/css'>
+        body {
+            font-family: Arial;
+            margin-left: 40px;
+        }
+
+        img {
+            border: 0 none;
+        }
+
+        #content {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        #message h1 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message p {
+            font-size: 16px;
+            color: #000000;
+            margin: 8px 0px 0px 0px
+        }
+
+        #message hr {
+            margin: 15px 0px
+        }
+
+        #errorref {
+            font-size: 11px;
+            color: #737373;
+            margin-top: 41px
+        }
+    </style>
+    <title>Service unavailable</title>
+</head>
+
+<body>
+    <div id='content'>
+        <div id='message'>
+            <h1>502</h1>
+<h2><span>The service behind this page isn't responding to Azure Front Door.</span>
+</h2>
+<hr />
+<p>Bad Gateway</p>
+<p>Azure Front Door wasn't able to connect to the origin. <br> If the problem persists, use the troubleshooting steps to resolve the issue.</p>
+<br />
+<a href="https://learn.microsoft.com/en-us/azure/frontdoor/troubleshoot-issues" target="blank">Azure Documentation</a>
+<br />
+        </div>
+        <div id='errorref'>
+            <span>Error Info:</span><span>OriginConnectionAborted</span><br />
+<span>x-azure-ref ID:</span><span>20260221T095933Z-1578f74cdbfpkqsdhC1SG1wyzn00000012b00000000010t5            </span>
+        </div>
+    </div>
+</body>
+</html>
+
+2026-02-21 10:01:31,828 - INFO - Checkpoint saved for batch 45
+2026-02-21 10:01:31,828 - INFO - Batch 46 done in 210.0s
+2026-02-21 10:01:31,828 - INFO - Progress: 9200/9319 (98.7%)
+2026-02-21 10:01:31,829 - INFO - Speed: 0.95 loc/s  |  ETA: 0:02:04
+2026-02-21 10:01:31,829 - INFO - Sleeping 3s between batches...
+2026-02-21 10:01:34,829 - INFO - Batch 47: locations 2801-2919
+2026-02-21 10:03:27,630 - INFO - Checkpoint saved for batch 46
+2026-02-21 10:03:27,631 - INFO - Batch 47 done in 112.8s
+2026-02-21 10:03:27,631 - INFO - Progress: 9319/9319 (100.0%)
+2026-02-21 10:03:27,631 - INFO - Speed: 1.05 loc/s  |  ETA: 0:00:00
+2026-02-21 10:03:27,954 - INFO - Saved to landsat_features_training.csv
+2026-02-21 10:03:27,954 - INFO - Success rate: 88.4%
+2026-02-21 10:03:27,955 - INFO - Done in 0.84 hours!
+2026-02-21 10:03:27,963 - INFO - No existing checkpoints - starting fresh
+2026-02-21 10:03:27,965 - INFO - Processing 200 remaining locations in batches of 200 with 30 workers
+2026-02-21 10:03:27,966 - INFO - Batch 1: locations 1-200
+2026-02-21 10:07:03,134 - WARNING - Attempt 1 failed for lat=-33.001667, lon=25.161389: <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type' />
+    <style type='text/css'>
+        body {
+            font-family: Arial;
+            margin-left: 40px;
+        }
+
+        img {
+            border: 0 none;
+        }
+
+        #content {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        #message h1 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #000000;
+            margin: 34px 0px 0px 0px
+        }
+
+        #message p {
+            font-size: 16px;
+            color: #000000;
+            margin: 8px 0px 0px 0px
+        }
+
+        #message hr {
+            margin: 15px 0px
+        }
+
+        #errorref {
+            font-size: 11px;
+            color: #737373;
+            margin-top: 41px
+        }
+    </style>
+    <title>Service unavailable</title>
+</head>
+
+<body>
+    <div id='content'>
+        <div id='message'>
+            <h1>502</h1>
+<h2><span>The service behind this page isn't responding to Azure Front Door.</span>
+</h2>
+<hr />
+<p>Bad Gateway</p>
+<p>Azure Front Door wasn't able to connect to the origin. <br> If the problem persists, use the troubleshooting steps to resolve the issue.</p>
+<br />
+<a href="https://learn.microsoft.com/en-us/azure/frontdoor/troubleshoot-issues" target="blank">Azure Documentation</a>
+<br />
+        </div>
+        <div id='errorref'>
+            <span>Error Info:</span><span>OriginConnectionAborted</span><br />
+<span>x-azure-ref ID:</span><span>20260221T100703Z-17cbd4d84fd8bgx4hC1SG10zes0000000ksg000000001nyv            </span>
+        </div>
+    </div>
+</body>
+</html>
+
+2026-02-21 10:08:22,768 - INFO - Checkpoint saved for batch 0
+2026-02-21 10:08:22,768 - INFO - Batch 1 done in 294.8s
+2026-02-21 10:08:22,769 - INFO - Progress: 200/200 (100.0%)
+2026-02-21 10:08:22,769 - INFO - Speed: 0.68 loc/s  |  ETA: 0:00:00
+2026-02-21 10:08:22,778 - INFO - Saved to landsat_features_validation.csv
+2026-02-21 10:08:22,779 - INFO - Success rate: 90.5%
+2026-02-21 10:08:22,779 - INFO - Done in 0.08 hours!
