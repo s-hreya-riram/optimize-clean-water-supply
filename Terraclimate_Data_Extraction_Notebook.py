@@ -9,6 +9,7 @@ import pystac_client
 import planetary_computer as pc
 from tqdm import tqdm
 import logging
+import os
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 
@@ -23,30 +24,18 @@ logging.basicConfig(
 
 print("✅ Dependencies loaded successfully!")
 
-# ── Variables to extract ──────────────────────────────────────────────────────
-# pet  = potential evapotranspiration (original)
-# aet  = actual evapotranspiration
-# def  = climate water deficit
-# ppt  = precipitation
-# q    = runoff
-# soil = soil moisture
-# pdsi = Palmer Drought Severity Index
-# tmax = max temperature
-# tmin = min temperature
-# vap  = vapor pressure
-# swe  = snow water equivalent
+# ── Config ────────────────────────────────────────────────────────────────────
 
 VARIABLES = ['pet', 'aet', 'def', 'ppt', 'q', 'soil', 'pdsi', 'tmax', 'tmin', 'vap', 'swe']
 
-# South Africa bounding box
 LAT_MIN, LAT_MAX = -35.18, -21.72
 LON_MIN, LON_MAX =  14.97,  32.79
 
 
-# ── Load dataset ──────────────────────────────────────────────────────────────
+# ── Load dataset (called fresh per variable to avoid token expiry) ────────────
 
 def load_terraclimate_dataset():
-    logging.info("Loading TerraClimate dataset from Planetary Computer...")
+    logging.info("Loading TerraClimate dataset (fresh token)...")
     catalog = pystac_client.Client.open(
         "https://planetarycomputer.microsoft.com/api/stac/v1",
         modifier=pc.sign_inplace,
@@ -65,36 +54,28 @@ def load_terraclimate_dataset():
             asset.href,
             **asset.extra_fields["xarray:open_kwargs"],
         )
-
-    logging.info(f"Dataset loaded. Variables available: {list(ds.data_vars)}")
     return ds
 
 
-# ── Filter to SA region and time range ───────────────────────────────────────
+# ── Fast spatial+temporal filter ─────────────────────────────────────────────
 
 def filterg(ds, var):
     logging.info(f"Filtering {var} for 2011-2015 over South Africa...")
-    ds_filtered = ds[var].sel(time=slice("2011-01-01", "2015-12-31"))
 
-    df_var_append = []
-    for i in tqdm(range(len(ds_filtered.time)), desc=f"Filtering {var}"):
-        df_var = ds_filtered.isel(time=i).to_dataframe().reset_index()
-        df_var_filter = df_var[
-            (df_var['lat'] > LAT_MIN) & (df_var['lat'] < LAT_MAX) &
-            (df_var['lon'] > LON_MIN) & (df_var['lon'] < LON_MAX)
-        ]
-        df_var_append.append(df_var_filter)
+    # Slice spatially AND temporally in one shot — no per-timestep loop
+    ds_filtered = ds[var].sel(
+        time=slice("2011-01-01", "2015-12-31"),
+        lat=slice(LAT_MAX, LAT_MIN),
+        lon=slice(LON_MIN, LON_MAX),
+    )
 
-    df_var_final = pd.concat(df_var_append, ignore_index=True)
-    df_var_final['time'] = df_var_final['time'].astype(str)
-    df_var_final = df_var_final.rename(columns={
-        "lat": "Latitude",
-        "lon": "Longitude",
-        "time": "Sample Date"
-    })
+    df = ds_filtered.to_dataframe().reset_index()
+    df = df.dropna(subset=[var])
+    df['time'] = df['time'].astype(str)
+    df = df.rename(columns={"lat": "Latitude", "lon": "Longitude", "time": "Sample Date"})
 
-    logging.info(f"Filtering for {var} completed: {df_var_final.shape}")
-    return df_var_final
+    logging.info(f"Filtering for {var} completed: {df.shape}")
+    return df
 
 
 # ── Map nearest climate values to sample locations ────────────────────────────
@@ -117,9 +98,9 @@ def assign_nearest_climate(sa_df, climate_df, var_name):
 
     climate_values = []
     for i in tqdm(range(len(sa_df)), desc=f"Mapping {var_name.upper()}"):
-        sample_date  = sa_df.loc[i, 'Sample Date']
-        nearest_lat  = sa_df.loc[i, 'nearest_lat']
-        nearest_lon  = sa_df.loc[i, 'nearest_lon']
+        sample_date = sa_df.loc[i, 'Sample Date']
+        nearest_lat = sa_df.loc[i, 'nearest_lat']
+        nearest_lon = sa_df.loc[i, 'nearest_lon']
 
         subset = climate_df[
             (climate_df['Latitude']  == nearest_lat) &
@@ -136,23 +117,27 @@ def assign_nearest_climate(sa_df, climate_df, var_name):
     return climate_values
 
 
-# ── Extract all variables for a dataset ──────────────────────────────────────
+# ── Extract all variables — reload dataset each time for fresh SAS token ──────
 
-def extract_all_variables(df, ds, label="dataset"):
+def extract_all_variables(df, label="dataset"):
     logging.info(f"Extracting {len(VARIABLES)} TerraClimate variables for {label}...")
     results = df[['Latitude', 'Longitude', 'Sample Date']].copy()
 
     for var in VARIABLES:
-        if var not in ds.data_vars:
-            logging.warning(f"Variable {var} not found in dataset, skipping.")
-            results[var] = np.nan
-            continue
-
         try:
+            # Fresh dataset load per variable = fresh SAS token = no auth expiry
+            ds = load_terraclimate_dataset()
+
+            if var not in ds.data_vars:
+                logging.warning(f"Variable {var} not found in dataset, skipping.")
+                results[var] = np.nan
+                continue
+
             climate_df     = filterg(ds, var)
             climate_values = assign_nearest_climate(df.copy(), climate_df, var)
             results[var]   = climate_values
             logging.info(f"✅ {var} extracted successfully")
+
         except Exception as e:
             logging.error(f"❌ Failed to extract {var}: {e}")
             results[var] = np.nan
@@ -160,24 +145,20 @@ def extract_all_variables(df, ds, label="dataset"):
     return results
 
 
-# ── Derived climate features ──────────────────────────────────────────────────
+# ── Derived features ──────────────────────────────────────────────────────────
 
 def add_derived_features(df):
     logging.info("Computing derived climate features...")
 
-    # Temperature range — proxy for continentality / thermal stress
     if 'tmax' in df.columns and 'tmin' in df.columns:
         df['temp_range'] = df['tmax'] - df['tmin']
 
-    # Aridity index — ratio of precip to PET, low = arid
     if 'ppt' in df.columns and 'pet' in df.columns:
         df['aridity_index'] = df['ppt'] / (df['pet'] + 1e-10)
 
-    # Evaporative fraction — how much of PET is actually met
     if 'aet' in df.columns and 'pet' in df.columns:
         df['evap_fraction'] = df['aet'] / (df['pet'] + 1e-10)
 
-    # Water surplus/deficit — positive means surplus
     if 'ppt' in df.columns and 'aet' in df.columns:
         df['water_balance'] = df['ppt'] - df['aet']
 
@@ -188,32 +169,24 @@ def add_derived_features(df):
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    # Load dataset once — reused for both training and validation
-    ds = load_terraclimate_dataset()
-
-    # ── Training data ──
-    logging.info("Processing training dataset...")
+    # Training data
     Water_Quality_df = pd.read_csv('water_quality_training_dataset.csv')
     logging.info(f"Training dataset: {Water_Quality_df.shape}")
 
-    train_results = extract_all_variables(Water_Quality_df, ds, label="training")
+    train_results = extract_all_variables(Water_Quality_df, label="training")
     train_results = add_derived_features(train_results)
     train_results.to_csv('terraclimate_features_training.csv', index=False)
-
     logging.info(f"✅ Training extraction complete: {train_results.shape}")
-    print(train_results.head(3))
+    print(train_results.isnull().mean().round(2))
 
-    # ── Validation data ──
-    import os
-    val_file = 'submission_template.csv'
+    # Validation data
+    val_file = 'submission_template.csv' if os.path.exists('submission_template.csv') else 'submission.csv'
     logging.info(f"Processing validation dataset from {val_file}...")
-
     Validation_df = pd.read_csv(val_file)
     logging.info(f"Validation dataset: {Validation_df.shape}")
 
-    val_results = extract_all_variables(Validation_df, ds, label="validation")
+    val_results = extract_all_variables(Validation_df, label="validation")
     val_results = add_derived_features(val_results)
     val_results.to_csv('terraclimate_features_validation.csv', index=False)
-
     logging.info(f"✅ Validation extraction complete: {val_results.shape}")
-    print(val_results.head(3))
+    print(val_results.isnull().mean().round(2))
