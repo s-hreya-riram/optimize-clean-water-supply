@@ -7,3 +7,4 @@ __pycache__/
 checkpoints/
 checkpoints_val/
 *.log
+landsat_extraction.log
